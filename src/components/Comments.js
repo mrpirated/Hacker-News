@@ -13,7 +13,6 @@ function Comments() {
 		CommentAPI({ page_no: 0 })
 			.then((res) => {
 				setData(res.hits);
-				console.log(res.hits);
 			})
 			.finally(() => {
 				setLoading(false);

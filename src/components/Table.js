@@ -1,6 +1,5 @@
 import React from "react";
 import SearchCard from "./SearchCard";
-import NewsCard from "./NewsCard";
 import CommentsCard from "./CommentsCard";
 import { Box, Typography } from "@mui/material";
 const selectCard = (item) => {
@@ -9,20 +8,9 @@ const selectCard = (item) => {
 	} else {
 		return <SearchCard item={item} />;
 	}
-	// switch (type) {
-	// 	case "search":
-	// 		return <SearchCard data={data} />;
-	// 	case "news":
-	// 		return <NewsCard data={data} />;
-	// 	case "comments":
-	// 		return <CommentsCard data={data} />;
-	// 	default:
-	// 		return;
-	// }
 };
 function Table(props) {
-	const { data, type } = props;
-	console.log(props);
+	const { data } = props;
 	return (
 		<div>
 			<Box>

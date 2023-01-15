@@ -1,9 +1,10 @@
 import React from "react";
-import { Card, CardContent, Box, Typography } from "@mui/material";
+import { Card, CardContent, Box, Typography, Link } from "@mui/material";
 import getTime from "../utils/getTime";
 
 function CommentsCard(props) {
 	const { data, item } = props;
+
 	return (
 		<Box m={1} key={item.objectID}>
 			<Card
@@ -28,7 +29,14 @@ function CommentsCard(props) {
 						sx={{ margin: "1%" }}
 					/>
 					<Typography component='span' variant='h7'>
-						on: {item.story_title}
+						<Link
+							href={item.story_url}
+							target='_blank'
+							underline='hover'
+							color='grey'
+						>
+							on: {item.story_title}
+						</Link>
 					</Typography>
 				</CardContent>
 			</Card>
