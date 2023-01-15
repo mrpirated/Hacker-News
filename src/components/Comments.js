@@ -12,11 +12,14 @@ function Comments() {
 		setLoading(true);
 		CommentAPI({ page_no: 0 })
 			.then((res) => {
-				setData(res.hits);
+				setData(res.data.hits);
 			})
 			.finally(() => {
 				setLoading(false);
 			});
+		CommentAPI({ page_no: 0 }, true).then((res) => {
+			setData(res.data.hits);
+		});
 	}, []);
 	return (
 		<div>

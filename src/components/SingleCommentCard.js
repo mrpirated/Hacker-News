@@ -12,6 +12,7 @@ function SingleCommentCard(props) {
 								variant='outlined'
 								sx={{
 									borderWidth: "0px 0px 2px 2px",
+									borderRadius: "16px",
 									backgroundColor: "#bdf2f2",
 									borderColor: "#9cc5ed",
 								}}

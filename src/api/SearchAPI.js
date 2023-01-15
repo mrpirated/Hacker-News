@@ -1,17 +1,18 @@
 import axios from "axios";
 import getTimeStamp from "../utils/getTimeStamp";
+import resolvePages from "./resolvePages";
 
-const SearchAPI = async (data) => {
+const API = async (data) => {
 	const { query, page_no, searchOption, byOption, forOption } = data;
-	var q = `http://hn.algolia.com/api/v1/search?query=${query}&page=${page_no}`;
+	var tag = "&tags=story";
+	if (searchOption == "Comments") {
+		tag = "&tags=comment";
+	}
+	var q = `http://hn.algolia.com/api/v1/search?query=${query}&${tag}&page=${page_no}`;
 	if (byOption == "Date") {
-		q = `http://hn.algolia.com/api/v1/search_by_date?query=${query}&page=${page_no}`;
+		q = `http://hn.algolia.com/api/v1/search_by_date?query=${query}&${tag}&page=${page_no}`;
 	}
-	if (searchOption == "Stories") {
-		q += "&tags=story";
-	} else if (searchOption == "Comments") {
-		q += "&tags=comment";
-	}
+
 	if (forOption !== "All Time") {
 		q += `&numericFilters=created_at_i>=${getTimeStamp(forOption)}`;
 	}
@@ -19,11 +20,14 @@ const SearchAPI = async (data) => {
 	return axios
 		.get(q)
 		.then((res) => {
-			console.log(res);
-			return res.data;
+			return res;
 		})
 		.catch((err) => {
 			console.error(err);
 		});
+};
+const SearchAPI = async (data, all_pages = false) => {
+	if (all_pages) return resolvePages(API, data);
+	return API(data);
 };
 export default SearchAPI;

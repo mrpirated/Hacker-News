@@ -12,12 +12,14 @@ function Show() {
 		setLoading(true);
 		ShowAPI({ page_no: 0 })
 			.then((res) => {
-				console.log(res.hits);
-				setData(res.hits);
+				setData(res.data.hits);
 			})
 			.finally(() => {
 				setLoading(false);
 			});
+		ShowAPI({ page_no: 0 }, true).then((res) => {
+			setData(res.data.hits);
+		});
 	}, []);
 	return (
 		<div>

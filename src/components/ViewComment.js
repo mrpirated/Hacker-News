@@ -19,7 +19,6 @@ function ViewComment(props) {
 		StoryCommentAPI({ objectID: objectID })
 			.then((res) => {
 				setData(res);
-				console.log(res);
 			})
 			.finally(() => {
 				setLoading(false);

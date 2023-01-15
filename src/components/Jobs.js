@@ -10,14 +10,16 @@ function Jobs() {
 	}, []);
 	useEffect(() => {
 		setLoading(true);
-		JobsAPI({ page_no: 0 })
+		JobsAPI({ page_no: 0, home: true })
 			.then((res) => {
-				console.log(res.hits);
-				setData(res.hits);
+				setData(res.data.hits);
 			})
 			.finally(() => {
 				setLoading(false);
 			});
+		JobsAPI({ page_no: 0, home: true }, true).then((res) => {
+			setData(res.data.hits);
+		});
 	}, []);
 	return (
 		<div>

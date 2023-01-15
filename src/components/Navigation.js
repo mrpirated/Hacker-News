@@ -13,7 +13,7 @@ function Navigation() {
 						style={{ color: "#FFFFFF", fontWeight: "bold", fontSize: "2rem" }}
 						title='Hacker News'
 						onClick={() => {
-							navigate("news");
+							navigate("/");
 						}}
 					>
 						Hacker News

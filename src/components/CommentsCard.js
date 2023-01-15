@@ -1,10 +1,11 @@
 import React from "react";
 import { Card, CardContent, Box, Typography, Link } from "@mui/material";
 import getTime from "../utils/getTime";
+import { useNavigate } from "react-router-dom";
 
 function CommentsCard(props) {
 	const { data, item } = props;
-
+	const navigate = useNavigate();
 	return (
 		<Box m={1} key={item.objectID}>
 			<Card
@@ -18,7 +19,16 @@ function CommentsCard(props) {
 				className='card'
 			>
 				<CardContent>
-					<Typography component='span' variant='h6'>
+					<Typography
+						component='span'
+						variant='h6'
+						onClick={() => {
+							navigate(`/author/${item.author}`, {
+								state: { author: item.author },
+							});
+						}}
+						className='points'
+					>
 						Author: {item.author}
 					</Typography>
 					<Typography component='span' style={{ float: "right" }}>

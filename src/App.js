@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import LoadingProvider from "./components/LoadingProvider";
 import { Route, Routes } from "react-router-dom";
 import Search from "./components/Search";
-import Stories from "./components/Stories";
 import Navigation from "./components/Navigation";
 import News from "./components/News";
 import Ask from "./components/Ask";
@@ -12,6 +11,8 @@ import "./App.css";
 import Comments from "./components/Comments";
 import Jobs from "./components/Jobs";
 import ViewComment from "./components/ViewComment";
+import Author from "./components/Author";
+import Home from "./components/Home";
 
 function App() {
 	// state to keep track of loading
@@ -34,17 +35,19 @@ function App() {
 				<LoadingProvider active={loading}>
 					{/* react-router-dom Routes component */}
 					<Routes>
+						<Route path='/' element={<Home />} />
 						<Route path='/news' element={<News />} />
 						{/* Route component to handle the '/search' path */}
 						<Route exact path='/search' element={<Search />} />
 						{/* Route component to handle the '/stories' path */}
-						<Route exact path='/stories' element={<Stories />} />
+
 						{/* Route component to handle the '/comments' path */}
 						<Route exact path='/comments' element={<Comments />} />
 						<Route exact path='/ask' element={<Ask />} />
 						<Route exact path='/show' element={<Show />} />
 						<Route exact path='/jobs' element={<Jobs />} />
 						<Route path='/comment/*' element={<ViewComment />} />
+						<Route path='/author/*' element={<Author />} />
 					</Routes>
 				</LoadingProvider>
 			</UniversalContext.Provider>

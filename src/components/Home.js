@@ -1,31 +1,31 @@
 import React, { useContext, useEffect, useState } from "react";
 import Table from "./Table";
-import AskAPI from "../api/AskAPI";
+import NewsAPI from "../api/NewsAPI";
 import UniversalContext from "../contexts/UniversalContext";
-function Ask() {
+function Home() {
 	const [data, setData] = useState([]);
 	const { setLoading, setPageTitle } = useContext(UniversalContext);
 	useEffect(() => {
-		setPageTitle("Ask - Hacker News");
+		setPageTitle("News - Hacker News");
 	}, []);
 	useEffect(() => {
 		setLoading(true);
-		AskAPI({ page_no: 0 })
+		NewsAPI({ page_no: 0, home: true })
 			.then((res) => {
 				setData(res.data.hits);
 			})
 			.finally(() => {
 				setLoading(false);
 			});
-		AskAPI({ page_no: 0 }, true).then((res) => {
+		NewsAPI({ page_no: 0, home: true }, true).then((res) => {
 			setData(res.data.hits);
 		});
 	}, []);
 	return (
 		<div>
-			<Table data={data} type='news' />
+			<Table data={data} />
 		</div>
 	);
 }
 
-export default Ask;
+export default Home;

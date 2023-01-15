@@ -42,10 +42,29 @@ function SearchCard(props) {
 					<Typography component='span' style={{ float: "right" }}>
 						{getTime(item.created_at)}
 					</Typography>
-					<Typography sx={{ mb: 1.5 }} color='text.secondary'>
+					<Typography
+						sx={{ mb: 1.5 }}
+						color='text.secondary'
+						onClick={() => {
+							navigate(`/comment/${item.objectID}`, {
+								state: { title: item.title, objectID: item.objectID },
+							});
+						}}
+						className='points'
+					>
 						{item.points} points
 					</Typography>
-					<Typography component='span'>Author: {item.author}</Typography>
+					<Typography
+						component='span'
+						onClick={() => {
+							navigate(`/author/${item.author}`, {
+								state: { author: item.author },
+							});
+						}}
+						className='points'
+					>
+						Author: {item.author}
+					</Typography>
 					<Typography
 						component='span'
 						style={{ float: "right" }}

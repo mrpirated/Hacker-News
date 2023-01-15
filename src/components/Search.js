@@ -32,12 +32,23 @@ function Search() {
 			forOption: forOption,
 		})
 			.then((res) => {
-				console.log(res.hits);
-				setData(res.hits);
+				setData(res.data.hits);
 			})
 			.finally(() => {
 				setLoading(false);
 			});
+		SearchAPI(
+			{
+				page_no: 0,
+				query: query,
+				searchOption: searchOption,
+				byOption: byOption,
+				forOption: forOption,
+			},
+			true
+		).then((res) => {
+			setData(res.data.hits);
+		});
 	}, [query, searchOption, byOption, forOption]);
 	return (
 		<Box component='div'>
@@ -107,7 +118,7 @@ function Search() {
 					</TextField>
 				</Grid>
 			</Grid>
-			<Table data={data} type='search' />
+			<Table data={data} />
 		</Box>
 	);
 }

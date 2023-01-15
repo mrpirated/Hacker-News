@@ -10,18 +10,20 @@ function News() {
 	}, []);
 	useEffect(() => {
 		setLoading(true);
-		NewsAPI({ page_no: 0 })
+		NewsAPI({ page_no: 0, home: false })
 			.then((res) => {
-				console.log(res.hits);
-				setData(res.hits);
+				setData(res.data.hits);
 			})
 			.finally(() => {
 				setLoading(false);
 			});
+		NewsAPI({ page_no: 0, home: false }, true).then((res) => {
+			setData(res.data.hits);
+		});
 	}, []);
 	return (
 		<div>
-			<Table data={data} type='news' />
+			<Table data={data} />
 		</div>
 	);
 }
