@@ -37,18 +37,18 @@ function Search() {
 			.finally(() => {
 				setLoading(false);
 			});
-		SearchAPI(
-			{
-				page_no: 0,
-				query: query,
-				searchOption: searchOption,
-				byOption: byOption,
-				forOption: forOption,
-			},
-			true
-		).then((res) => {
-			setData(res.data.hits);
-		});
+		// SearchAPI(
+		// 	{
+		// 		page_no: 0,
+		// 		query: query,
+		// 		searchOption: searchOption,
+		// 		byOption: byOption,
+		// 		forOption: forOption,
+		// 	},
+		// 	true
+		// ).then((res) => {
+		// 	setData(res.data.hits);
+		// });
 	}, [query, searchOption, byOption, forOption]);
 	return (
 		<Box component='div'>
