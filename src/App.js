@@ -11,6 +11,7 @@ import UniversalContext from "./contexts/UniversalContext";
 import "./App.css";
 import Comments from "./components/Comments";
 import Jobs from "./components/Jobs";
+import ViewComment from "./components/ViewComment";
 
 function App() {
 	// state to keep track of loading
@@ -43,6 +44,7 @@ function App() {
 						<Route exact path='/ask' element={<Ask />} />
 						<Route exact path='/show' element={<Show />} />
 						<Route exact path='/jobs' element={<Jobs />} />
+						<Route path='/comment/*' element={<ViewComment />} />
 					</Routes>
 				</LoadingProvider>
 			</UniversalContext.Provider>

@@ -15,7 +15,7 @@ function NewsCard(props) {
 							<Card
 								variant='outlined'
 								sx={{ borderRadius: "16px" }}
-								className='search-card'
+								className='card'
 							>
 								<CardContent>
 									<Typography variant='h5' component='span'>

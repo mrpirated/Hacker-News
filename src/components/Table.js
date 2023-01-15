@@ -26,7 +26,9 @@ function Table(props) {
 	return (
 		<div>
 			<Box>
-				{data.length && data.map((item) => <Box m={2}>{selectCard(item)}</Box>)}
+				{data.length
+					? data.map((item) => <Box m={2}>{selectCard(item)}</Box>)
+					: ""}
 			</Box>
 		</div>
 	);

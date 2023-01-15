@@ -40,82 +40,75 @@ function Search() {
 			});
 	}, [query, searchOption, byOption, forOption]);
 	return (
-		<div>
-			{/* <input
-				type='text'
+		<Box component='div'>
+			<TextField
+				id='outlined-basic'
+				label='Search Query'
+				variant='outlined'
 				value={query}
 				onChange={(e) => {
 					setQuery(e.target.value);
 				}}
-			/> */}
-			<Box component='form'>
-				<TextField
-					id='outlined-basic'
-					label='Search Query'
-					variant='outlined'
-					value={query}
-					onChange={(e) => {
-						setQuery(e.target.value);
-					}}
-					sx={{ display: "flex", margin: "16px" }}
-				/>
-				<Grid container spacing={2}>
-					<Grid item>
-						<TextField
-							select
-							label='Search for'
-							defaultValue='Stories'
-							variant='filled'
-							onChange={(e) => {
-								setSearchOption(e.target.value);
-							}}
-						>
-							{SearchOptions.map((option) => (
-								<MenuItem key={option} value={option}>
-									{option}
-								</MenuItem>
-							))}
-						</TextField>
-					</Grid>
-					<Grid item>
-						<TextField
-							select
-							label='Search By'
-							defaultValue='Popularity'
-							variant='filled'
-							onChange={(e) => {
-								setByOption(e.target.value);
-							}}
-						>
-							{byOptions.map((option) => (
-								<MenuItem key={option} value={option}>
-									{option}
-								</MenuItem>
-							))}
-						</TextField>
-					</Grid>
-					<Grid item>
-						<TextField
-							select
-							label='Search From'
-							defaultValue='All Time'
-							variant='filled'
-							onChange={(e) => {
-								setForOption(e.target.value);
-							}}
-						>
-							{forOptions.map((option) => (
-								<MenuItem key={option} value={option}>
-									{option}
-								</MenuItem>
-							))}
-						</TextField>
-					</Grid>
+				sx={{ display: "flex", margin: "16px" }}
+			/>
+			<Grid container spacing={2} sx={{ display: "flex", margin: "auto" }}>
+				<Grid item xs={4}>
+					<TextField
+						select
+						label='Search for'
+						defaultValue='Stories'
+						fullWidth
+						sx={{ textAlign: "center" }}
+						onChange={(e) => {
+							setSearchOption(e.target.value);
+						}}
+					>
+						{SearchOptions.map((option) => (
+							<MenuItem key={option} value={option}>
+								{option}
+							</MenuItem>
+						))}
+					</TextField>
 				</Grid>
-			</Box>
-
+				<Grid item xs={4}>
+					<TextField
+						select
+						label='Search By'
+						defaultValue='Popularity'
+						fullWidth
+						sx={{ textAlign: "center" }}
+						onChange={(e) => {
+							setByOption(e.target.value);
+						}}
+					>
+						{byOptions.map((option) => (
+							<MenuItem key={option} value={option}>
+								{option}
+							</MenuItem>
+						))}
+					</TextField>
+				</Grid>
+				<Grid item xs={4}>
+					<TextField
+						select
+						label='Search From'
+						defaultValue='All Time'
+						fullWidth
+						sx={{ textAlign: "center" }}
+						onChange={(e) => {
+							setForOption(e.target.value);
+						}}
+					>
+						{forOptions.map((option) => (
+							<MenuItem key={option} value={option}>
+								{option}
+							</MenuItem>
+						))}
+					</TextField>
+				</Grid>
+			</Grid>
 			<Table data={data} type='search' />
-		</div>
+		</Box>
 	);
 }
 

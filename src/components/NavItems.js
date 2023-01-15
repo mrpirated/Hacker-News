@@ -8,10 +8,6 @@ const NavItems = [
 		path: "search",
 	},
 	{
-		name: "Stories",
-		path: "stories",
-	},
-	{
 		name: "Comments",
 		path: "comments",
 	},

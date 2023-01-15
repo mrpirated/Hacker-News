@@ -5,7 +5,9 @@
   --bgColor1: #dbf6f6;
   --bgColor2: #367ec7;
   --bgColor3: #9cc5ed;
+  --bgColor4:#bdf2f2;
 }
+
 body {
 	height: 100%;
 }
@@ -25,4 +27,10 @@ body {
 	padding-left: 15px;
 	margin-right: auto;
 	margin-left: auto;
+}
+.comment{
+	color:grey
+}
+.comment:hover{
+	text-decoration: underline grey;
 }

@@ -8,8 +8,13 @@ function CommentsCard(props) {
 		<Box m={1} key={item.objectID}>
 			<Card
 				variant='outlined'
-				sx={{ borderRadius: "16px" }}
-				className='search-card'
+				sx={{
+					borderRadius: "16px",
+					borderColor: "#9cc5ed",
+					borderWidth: "3px",
+					backgroundColor: "#bdf2f2",
+				}}
+				className='card'
 			>
 				<CardContent>
 					<Typography component='span' variant='h6'>
@@ -24,12 +29,6 @@ function CommentsCard(props) {
 					/>
 					<Typography component='span' variant='h7'>
 						on: {item.story_title}
-					</Typography>
-					<Typography component='span' style={{ float: "right" }}>
-						parent
-					</Typography>
-					<Typography component='span' style={{ float: "right" }}>
-						context
 					</Typography>
 				</CardContent>
 			</Card>
