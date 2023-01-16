@@ -3,7 +3,7 @@
 @import "./styles/cardStyle.css";
 :root{
   --bgColor1: #dbf6f6;
-  --bgColor2: #367ec7;
+  --bgColor2: #09d0d0;
   --bgColor3: #9cc5ed;
   --bgColor4:#bdf2f2;
 }
@@ -35,3 +35,14 @@ body {
 	text-decoration: underline grey;
 }
 
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	bottom: 0;
+	width: 100%;
+	padding: 0;
+
+	background-color: var(--bgColor2);
+}

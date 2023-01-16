@@ -36,7 +36,12 @@ function CommentsCard(props) {
 					</Typography>
 					<Typography
 						dangerouslySetInnerHTML={{ __html: item.comment_text }}
-						sx={{ margin: "1%" }}
+						sx={{
+							margin: "1%",
+							borderRadius: "16px",
+							borderColor: "#9cc5ed",
+							borderWidth: "3px",
+						}}
 					/>
 					<Typography component='span' variant='h7'>
 						<Link
