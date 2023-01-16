@@ -1,7 +1,7 @@
 
 .card:hover{
 	opacity: 1;
-	transform: scale(1.04);
+	transform: scale(1.02);
 	transition-duration: 0.25s;
 	cursor: pointer;
 }
