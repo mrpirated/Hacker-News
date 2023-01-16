@@ -28,17 +28,21 @@ function SearchCard(props) {
 						{item.title}
 					</Typography>
 
-					<Typography component='span'>
-						{" "}
-						<Link
-							href={item.url}
-							target='_blank'
-							underline='hover'
-							color='grey'
-						>
-							({item.url})
-						</Link>
-					</Typography>
+					{item.url ? (
+						<Typography component='span'>
+							{" "}
+							<Link
+								href={item.url}
+								target='_blank'
+								underline='hover'
+								color='grey'
+							>
+								({item.url})
+							</Link>
+						</Typography>
+					) : (
+						""
+					)}
 					<Typography component='span' style={{ float: "right" }}>
 						{getTime(item.created_at)}
 					</Typography>

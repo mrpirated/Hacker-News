@@ -4,8 +4,8 @@ import UniversalContext from "../contexts/UniversalContext";
 import { useLocation } from "react-router-dom";
 import getTime from "../utils/getTime";
 import SingleCommentCard from "./SingleCommentCard";
-import { Card, CardContent, Link, Box, Typography } from "@mui/material";
-function ViewComment(props) {
+import { Link, Box, Typography } from "@mui/material";
+function ViewComment() {
 	const { loading, setLoading, setPageTitle } = useContext(UniversalContext);
 	const location = useLocation();
 	const [data, setData] = useState([]);
@@ -34,12 +34,16 @@ function ViewComment(props) {
 			>
 				{data.title}
 			</Typography>
-			<Typography component='span'>
-				{" "}
-				<Link href={data.url} target='_blank' underline='hover' color='grey'>
-					({data.url})
-				</Link>
-			</Typography>
+			{data.url ? (
+				<Typography component='span'>
+					{" "}
+					<Link href={data.url} target='_blank' underline='hover' color='grey'>
+						({data.url})
+					</Link>
+				</Typography>
+			) : (
+				""
+			)}
 			<Typography component='span' style={{ float: "right" }}>
 				{getTime(data.created_at)}
 			</Typography>
