@@ -28,12 +28,13 @@ function App() {
 	return (
 		<div className='App'>
 			{/* Navigation component */}
-			<Navigation />
+
 			{/* UniversalContext provider to pass the states and methods to the child components */}
-			<UniversalContext.Provider value={{ setPageTitle, setLoading }}>
+			<UniversalContext.Provider value={{ loading, setPageTitle, setLoading }}>
 				{/* LoadingProvider component to show loading state */}
 				<LoadingProvider active={loading}>
 					{/* react-router-dom Routes component */}
+					<Navigation />
 					<Routes>
 						<Route path='/' element={<Home />} />
 						<Route path='/news' element={<News />} />

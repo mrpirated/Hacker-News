@@ -6,11 +6,10 @@ import getTime from "../utils/getTime";
 import SingleCommentCard from "./SingleCommentCard";
 import { Card, CardContent, Link, Box, Typography } from "@mui/material";
 function ViewComment(props) {
-	const { setLoading, setPageTitle } = useContext(UniversalContext);
+	const { loading, setLoading, setPageTitle } = useContext(UniversalContext);
 	const location = useLocation();
 	const [data, setData] = useState([]);
 	const { title, objectID } = location.state;
-	console.log(objectID);
 	useEffect(() => {
 		setPageTitle(`${title} - Hacker News`);
 	}, []);
@@ -25,7 +24,7 @@ function ViewComment(props) {
 			});
 	}, []);
 	return (
-		<Box component='div' m={2}>
+		<Box component='div' m={2} display={loading ? "none" : "block"}>
 			<Typography
 				variant='h5'
 				component='span'

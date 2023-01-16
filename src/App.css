@@ -3,7 +3,7 @@
 @import "./styles/cardStyle.css";
 :root{
   --bgColor1: #dbf6f6;
-  --bgColor2: #09d0d0;
+  --bgColor2: #06a5a5;
   --bgColor3: #9cc5ed;
   --bgColor4:#bdf2f2;
 }
@@ -43,6 +43,6 @@ body {
 	bottom: 0;
 	width: 100%;
 	padding: 0;
-
+	color:white;
 	background-color: var(--bgColor2);
 }

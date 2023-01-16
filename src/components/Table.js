@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import SearchCard from "./SearchCard";
 import CommentsCard from "./CommentsCard";
 import { Box, TablePagination } from "@mui/material";
 import Paginate from "../utils/paginate";
+import UniversalContext from "../contexts/UniversalContext";
 const selectCard = (item) => {
 	if (item.parent_id != null) {
 		return <CommentsCard item={item} />;
@@ -18,6 +19,7 @@ function Table(props) {
 	const handleChangePage = (event, newPage) => {
 		setPage(newPage);
 	};
+	const { loading } = useContext(UniversalContext);
 	useEffect(() => {
 		setPaginatedData(Paginate(data, rowsPerPage));
 	}, [data, rowsPerPage]);
@@ -36,8 +38,11 @@ function Table(props) {
 						  ))
 						: ""}
 				</Box>
-
-				<Box component='footer' className='pagination'>
+				<Box
+					component='footer'
+					className='pagination'
+					display={loading ? "none" : "flex"}
+				>
 					<TablePagination
 						component='div'
 						count={data.length}
@@ -45,6 +50,7 @@ function Table(props) {
 						onPageChange={handleChangePage}
 						rowsPerPage={rowsPerPage}
 						onRowsPerPageChange={handleChangeRowsPerPage}
+						sx={{ color: "white" }}
 					/>
 				</Box>
 			</Box>
